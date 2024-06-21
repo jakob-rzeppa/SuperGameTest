@@ -1,0 +1,42 @@
+CREATE TABLE `items`(
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` TEXT NOT NULL,
+    `type` INT UNSIGNED NOT NULL,
+    `info` TEXT NOT NULL
+);
+CREATE TABLE `player_spells`(
+    `player` BIGINT UNSIGNED NOT NULL,
+    `spell` BIGINT UNSIGNED NOT NULL,
+    PRIMARY KEY(`player`,`spell`)
+);
+CREATE TABLE `player_items`(
+    `player` BIGINT UNSIGNED NOT NULL,
+    `item` BIGINT UNSIGNED NOT NULL,
+    PRIMARY KEY(`player`,`item`)
+);
+CREATE TABLE `spells`(
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` TEXT NOT NULL,
+    `damageToEnemy` BIGINT NOT NULL,
+    `damageToPlayer` BIGINT NOT NULL,
+    `demonBloodCost` BIGINT NOT NULL
+);
+CREATE TABLE `players`(
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` TINYTEXT NOT NULL,
+    `species` BIGINT UNSIGNED NOT NULL,
+    `job` BIGINT UNSIGNED NOT NULL,
+    `primaryWeapon` BIGINT UNSIGNED NULL,
+    `secondaryWeapon` BIGINT UNSIGNED NULL,
+    `meleeWeapon` BIGINT UNSIGNED NULL
+);
+CREATE TABLE `species` (
+	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` TINYTEXT NOT NULL,
+    `info` TEXT NOT NULL
+);
+CREATE TABLE `jobs` (
+	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` TINYTEXT NOT NULL,
+    `info` TEXT NOT NULL
+);
